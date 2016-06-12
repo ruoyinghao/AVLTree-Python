@@ -226,6 +226,23 @@ class Binary_Search_Tree:
 
   def __str__(self):
     return self.in_order()
+    
+    def reverse(self):
+    self._root=self._reverse_rec(self._root)
+  
+  def _reverse_rec(self,root):
+    if root is None:
+      return None
+    else:
+      root._left=self._reverse_rec(root._left)
+      root._right=self._reverse_rec(root._right)
+      
+      left=root._left
+      right=root._right
+      root._left=right
+      root._right=left
+      
+      return root
 
 if __name__ == '__main__':
   pass
